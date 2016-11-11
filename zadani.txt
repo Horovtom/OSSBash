@@ -1,0 +1,29 @@
+Vytvořte skript, který v zadaném adresáři a v jeho podadresářích vyhledá všechny soubory s danou příponou a podle parametru je
+
+    zkopíruje na soubory s jinou příponou, nebo
+    přejmenuje na soubory s jinou příponou, nebo
+    smaže.
+
+Skript bude mít 4 povinné parametry (3 v případě mazání souborů):
+  adresar [ -c | -m | -r ] ext1 ext2,
+kde přípony ext1 a ext2 jsou běžné řetězce, které mohou (ale nemusí) obsahovat i znak tečka. Parametr -c určuje kopírování, -m přesun (přejmenování) a -r smazání souborů.
+
+Skript na standardní výstup vypíše pro kopírované i přesouvané soubory pro každý soubor řádku
+staré jméno => nové jméno
+přičemž pro smazané soubory bude vypsáno pouze jméno (resp. cesta) smazaného souboru.
+
+Na chybový výstup skript vypíše pokud zadaný adresář neexistuje, nebo pokud u některého souboru nebude mít skript práva na kopírování (právo na čtení), nebo právo na přesun (právo na čtení a psaní).
+
+Pokud bude nektery z procesoanych souboru necitelny nebo nezapisovatelny, vypiste pouze chybove hlaseni, ale navratovou hodnotu vracejte 0.
+
+Př.: Výstup pro příkaz s parametry adresář -c 'a.txt' 'ngz'
+
+a/aa.txt => a/angz
+a/ba.txt => a/bngz
+ta.txt => tngz
+
+Požadavky: blok programu pro procházení/hledání souborů se v kódu nebude opakovat.
+
+Nápověda: viz příkazy find, cp, mv a rm.
+
+Upozornění: vlastník souboru může soubor přejmenovat či smazat i v případě, že nemá nastavena oprávnění pro čtení či zápis. Kontrola příznaků r/w proto nemusí správně rozpoznat zda se zamýšlená operace provede či ne.
