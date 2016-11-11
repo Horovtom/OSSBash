@@ -4,7 +4,7 @@ root=$1
 shift
 # Process arguments:
 while getopts ":cmrh" opt; do
-    	case $opt in
+	case $opt in
 	c)echo "copy parameter entered";
 		;; 
 	m)echo "move parameter entered";
