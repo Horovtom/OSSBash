@@ -1,25 +1,28 @@
 #!/bin/bash
 
+root=$1
+shift
 # Process arguments:
 while getopts ":cmrh" opt; do
     	case $opt in
-	c)echo "c parameter entered";
-		;; # Handle -c argument (copy)
-	m)echo "m parameter entered";
-		;; # Handle -m argument (move)
-	r)echo "r parameter entered";
-		;; # Handle -r argument (remove)
+	c)echo "copy parameter entered";
+		;; 
+	m)echo "move parameter entered";
+		;; 
+	r)echo "remove parameter entered";
+		;; 
 	h)echo "This is help";
-		;; # Handle -h argument
-    	\?)echo "Invalid option: -$OPTARG" >&2;
+		;; 
+    \?)echo "Invalid option: -$OPTARG" >&2;
 		exit 1;
-		;; # Handle error: unknown option or missing required argument.
+		;; 
 	:)echo "Option -$OPTARG requires argument." >&2;
 		exit 1;
-		;; # Handle no-argument to option with argument"
+		;; 
 	esac
 done
 ext1=${@:$OPTIND:1}
 ext2=${@:$OPTIND+1:1}
+echo "All in directory: $root"
 echo "ext1: $ext1"
 echo "ext2: $ext2"
